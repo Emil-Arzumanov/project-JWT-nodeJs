@@ -14,5 +14,5 @@ class UserService {
         await mailService.sendActivationMail(email, activationLink);
     }
 }
-
+//TODO: 27:05
 module.exports = new UserService;
