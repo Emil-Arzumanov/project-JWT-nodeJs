@@ -6,22 +6,15 @@ import {increment} from "../../store/reducers/registration-reducer";
 
 function MainPage() {
     const navigate = useNavigate();
-    const registration = useAppSelector(state => state.registration);
     const dispatch = useAppDispatch();
 
     return (
         <div>
             <div>
-                main
-                <p>
-                    {registration.number}
-                </p>
-                <button onClick={() => {
-                    dispatch(increment())
-                }}>increment</button>
+                Main page
             </div>
             <button onClick={() => {
-                navigate("/auth", {replace: true})
+                navigate("/login", {replace: true})
             }}>
                 Login
             </button>

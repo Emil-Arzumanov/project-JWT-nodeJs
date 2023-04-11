@@ -1,27 +1,26 @@
-import React, {FC} from "react";
-import {BrowserRouter, Route, Routes} from "react-router-dom";
-import AuthPage from "./components/AuthPageComp/AuthPage";
-import MainPage from "./components/MainPageComp/MainPage";
-import RegistrationPage from "./components/RegPageComp/RegistrationPage";
+import React from "react";
+import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
+import {routes} from "./routes";
 
 
 function App() {
   return (
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<MainPage/>}></Route>
-          <Route path="/auth" element={<AuthPage/>}></Route>
-          <Route path="/registration" element={<RegistrationPage/>}></Route>
+            {routes.map(elem =>
+                <Route path={elem.path}
+                       element={<elem.component/>}
+                       key={elem.path}
+                />
+            )}
+            <Route
+                path="*"
+                element={<Navigate to="/" replace />}
+            />
         </Routes>
       </BrowserRouter>
   );
 }
-{/*
-<Route element={<div></div>}>
-            <Route path="/AdminCompanies" element={<div></div>}/>
-            <Route path="/AdminUsers" element={<div></div>}/>
-          </Route>
-*/}
 
 export default App;
 
