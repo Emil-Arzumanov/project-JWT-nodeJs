@@ -1,15 +1,17 @@
 import {createSlice} from "@reduxjs/toolkit";
 
 interface initState {
-    number: number
+    number: number,
+    isAuth: boolean
 }
 
 const initialState: initState = {
     number: 0,
+    isAuth: false,
 }
 
-const regSlice = createSlice({
-    name: "registration",
+const authSlice = createSlice({
+    name: "authorization",
     initialState,
     reducers: {
         increment(state) {
@@ -20,6 +22,6 @@ const regSlice = createSlice({
 
 export const {
     increment
-} = regSlice.actions
+} = authSlice.actions
 
-export default regSlice.reducer
+export default authSlice.reducer

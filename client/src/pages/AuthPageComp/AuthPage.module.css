@@ -1,0 +1,81 @@
+.mainWrapper {
+    background: linear-gradient(#152646, #415a6c);;
+    width: 100%;
+    height: 100vh;
+}
+.mainWrapper .wrapper {
+    width: 800px;
+    height: 400px;
+    background-color: #333333;
+    border-radius: 10px;
+    padding: 20px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: #FFFFFF;
+}
+.wrapper .menuName {
+    text-align: center;
+    margin-bottom: 30px;
+}
+.wrapper .textInputWrapper {
+    width: border-box;
+    display: flex;
+    justify-content: center;
+}
+.textInputWrapper .textInput {
+    width: 300px;
+}
+.wrapper .textInput p {
+    margin: 10px 0;
+}
+.wrapper .textInput input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 10px;
+    background: #333333;
+    border-color: black;
+    color: #FFFFFF;
+}
+.confirmationButtonWrapper {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+.confirmationButtonWrapper .confirmationButton {
+    width: 300px;
+}
+.confirmationButton button {
+    width: 100%;
+    background-color: #333333;
+    color: #FFFFFF;
+    padding: 10px 0;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+.confirmationButton button:hover {
+    background-color: black;
+}
+.buttonsWrapper {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+.buttonsWrapper .buttons {
+    width: 300px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 20px;
+}
+.buttonsWrapper button {
+    background-color: #333333;
+    color: #FFFFFF;
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+.buttonsWrapper button:hover {
+    background-color: black;
+}

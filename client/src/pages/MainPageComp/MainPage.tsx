@@ -1,7 +1,8 @@
 import React from "react";
 import {useNavigate} from "react-router-dom";
 import {useAppDispatch, useAppSelector} from "../../hooks/redux";
-import {increment} from "../../store/reducers/registration-reducer";
+import mainPageStyle from "./MainPage.module.css";
+import mainBackground from "../../imgs/mainBackground.jpeg"
 
 
 function MainPage() {
@@ -9,20 +10,19 @@ function MainPage() {
     const dispatch = useAppDispatch();
 
     return (
-        <div>
-            <div>
-                Main page
+        <div className={mainPageStyle.mainWrapper}>
+            <img className={mainPageStyle.mainBackImg} src={mainBackground} alt=""/>
+            <div className={mainPageStyle.mainContent}>
+                <h1>Welcome To Main Page!</h1>
+                <div className={mainPageStyle.mainButtons}>
+                    <button onClick={() => {
+                        navigate("/login", {replace: true})
+                    }}>Login</button>
+                    <button onClick={() => {
+                        navigate("/registration", {replace: true})
+                    }}>Registration</button>
+                </div>
             </div>
-            <button onClick={() => {
-                navigate("/login", {replace: true})
-            }}>
-                Login
-            </button>
-            <button onClick={() => {
-                navigate("/registration", {replace: true})
-            }}>
-                RegIn
-            </button>
         </div>
     );
 }

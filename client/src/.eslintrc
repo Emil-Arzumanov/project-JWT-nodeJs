@@ -4,7 +4,6 @@
     "react-app/jest"
   ],
   "rules": {
-    "quotes": ["error", "double"],
     "no-alert": "error",
     "max-lines": ["error", 150]
   }

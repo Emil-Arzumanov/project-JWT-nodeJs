@@ -1,25 +1,43 @@
 import React from "react";
 import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
-import {routes} from "./routes";
+import {loggedRoutes, routes} from "./routes/routing";
+import {useAppSelector} from "./hooks/redux";
 
 
 function App() {
-  return (
-      <BrowserRouter>
-        <Routes>
-            {routes.map(elem =>
-                <Route path={elem.path}
-                       element={<elem.component/>}
-                       key={elem.path}
-                />
-            )}
-            <Route
-                path="*"
-                element={<Navigate to="/" replace />}
-            />
-        </Routes>
-      </BrowserRouter>
-  );
+    const authSlice = useAppSelector(state => state.authorization)
+
+    return (
+        <BrowserRouter>
+            {
+                authSlice.isAuth
+                    ?
+                    <Routes>
+                        {loggedRoutes.map(elem =>
+                            <Route path={elem.path}
+                                   element={<elem.component/>}
+                                   key={elem.path}/>
+                        )}
+                        <Route
+                            path="*"
+                            element={<Navigate to="/homepage" replace />}
+                        />
+                    </Routes>
+                    :
+                    <Routes>
+                        {routes.map(elem =>
+                            <Route path={elem.path}
+                                   element={<elem.component/>}
+                                   key={elem.path}/>
+                        )}
+                        <Route
+                            path="*"
+                            element={<Navigate to="/" replace />}
+                        />
+                    </Routes>
+            }
+        </BrowserRouter>
+    );
 }
 
 export default App;
