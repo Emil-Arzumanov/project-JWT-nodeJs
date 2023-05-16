@@ -1,9 +1,13 @@
 import React from "react";
 import {useNavigate} from "react-router-dom";
 import authStyle from "./AuthPage.module.css";
+import {useAppDispatch, useAppSelector} from "../../hooks/redux";
+import {updateAuthInput} from "../../store/reducers/auth-reducer";
 
 
 function AuthPage() {
+    const authSlice = useAppSelector(state => state.authorization)
+    const dispatch = useAppDispatch();
     const navigate = useNavigate();
 
     return (
@@ -15,13 +19,23 @@ function AuthPage() {
                 <div className={authStyle.textInputWrapper}>
                     <div className={authStyle.textInput}>
                         <p>Email</p>
-                        <input type="text"/>
+                        <input type="text"
+                               value={authSlice.authInputs.email}
+                               onChange={(e) => {
+                                   dispatch(updateAuthInput({name:"email",value:e.target.value}));
+                               }}
+                        />
                     </div>
                 </div>
                 <div className={authStyle.textInputWrapper}>
                     <div className={authStyle.textInput}>
                         <p>Password</p>
-                        <input type="text"/>
+                        <input type="text"
+                               value={authSlice.authInputs.password}
+                               onChange={(e) => {
+                                   dispatch(updateAuthInput({name:"password",value:e.target.value}));
+                               }}
+                        />
                     </div>
                 </div>
                 <div className={authStyle.confirmationButtonWrapper}>

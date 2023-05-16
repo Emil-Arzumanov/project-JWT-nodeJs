@@ -1,9 +1,13 @@
 import React from "react";
 import {useNavigate} from "react-router-dom";
 import regStyle from "./RegistrationPage.module.css";
+import {useAppDispatch, useAppSelector} from "../../hooks/redux";
+import {updateRegInput} from "../../store/reducers/auth-reducer";
 
 
 function RegistrationPage() {
+    const authSlice = useAppSelector(state => state.authorization)
+    const dispatch = useAppDispatch();
     const navigate = useNavigate();
 
     return (
@@ -15,13 +19,23 @@ function RegistrationPage() {
                 <div className={regStyle.textInputWrapper}>
                     <div className={regStyle.textInput}>
                         <p>Email</p>
-                        <input type="text"/>
+                        <input type="text"
+                               value={authSlice.regInputs.email}
+                               onChange={(e) => {
+                                   dispatch(updateRegInput({name:"email",value:e.target.value}));
+                               }}
+                        />
                     </div>
                 </div>
                 <div className={regStyle.textInputWrapper}>
                     <div className={regStyle.textInput}>
                         <p>Password</p>
-                        <input type="text"/>
+                        <input type="text"
+                               value={authSlice.regInputs.password}
+                               onChange={(e) => {
+                                   dispatch(updateRegInput({name:"password",value:e.target.value}));
+                               }}
+                        />
                     </div>
                 </div>
                 <div className={regStyle.confirmationButtonWrapper}>
