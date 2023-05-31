@@ -1,10 +1,9 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import homeStyle from "./HomePage.module.css";
 import {logout} from "../../store/reducers/auth-reducer";
-import {useAppDispatch, useAppSelector} from "../../hooks/redux";
+import {useAppDispatch} from "../../hooks/redux";
 
 const HomePage = () => {
-    const authSlice = useAppSelector(state => state.authorization)
     const dispatch = useAppDispatch();
 
     return (

@@ -1,11 +1,9 @@
 import React from "react";
 import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
 import {loggedRoutes, routes} from "./routes/routing";
-import {useAppSelector} from "./hooks/redux";
 
 
 function App() {
-    const authSlice = useAppSelector(state => state.authorization)
 
     return (
         <BrowserRouter>
