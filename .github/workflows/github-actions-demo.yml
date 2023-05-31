@@ -21,6 +21,7 @@ jobs:
         working-directory: ./client
       - name: build storybook
         run: npm run build:storybook
+        working-directory: ./client
       - name: unit test
         run: npm run test:unit
       - name: e2e test
