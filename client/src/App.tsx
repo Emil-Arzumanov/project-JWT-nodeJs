@@ -10,7 +10,7 @@ function App() {
     return (
         <BrowserRouter>
             {
-                authSlice.isAuth
+                localStorage.getItem("userToken")
                     ?
                     <Routes>
                         {loggedRoutes.map(elem =>

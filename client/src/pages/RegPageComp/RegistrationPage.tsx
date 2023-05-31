@@ -2,7 +2,7 @@ import React from "react";
 import {useNavigate} from "react-router-dom";
 import regStyle from "./RegistrationPage.module.css";
 import {useAppDispatch, useAppSelector} from "../../hooks/redux";
-import {updateRegInput} from "../../store/reducers/auth-reducer";
+import {registration, updateRegInput} from "../../store/reducers/auth-reducer";
 
 
 function RegistrationPage() {
@@ -40,7 +40,12 @@ function RegistrationPage() {
                 </div>
                 <div className={regStyle.confirmationButtonWrapper}>
                     <div className={regStyle.confirmationButton}>
-                        <button>RegIn</button>
+                        <button onClick={() => {
+                            dispatch(registration({
+                                email: authSlice.regInputs.email,
+                                password: authSlice.regInputs.password
+                            }))
+                        }}>RegIn</button>
                     </div>
                 </div>
                 <div className={regStyle.buttonsWrapper}>

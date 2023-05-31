@@ -2,7 +2,7 @@ import React from "react";
 import {useNavigate} from "react-router-dom";
 import authStyle from "./AuthPage.module.css";
 import {useAppDispatch, useAppSelector} from "../../hooks/redux";
-import {updateAuthInput} from "../../store/reducers/auth-reducer";
+import {login, updateAuthInput} from "../../store/reducers/auth-reducer";
 
 
 function AuthPage() {
@@ -40,7 +40,12 @@ function AuthPage() {
                 </div>
                 <div className={authStyle.confirmationButtonWrapper}>
                     <div className={authStyle.confirmationButton}>
-                        <button>LogIn</button>
+                        <button onClick={() => {
+                            dispatch(login({
+                                email: authSlice.authInputs.email,
+                                password: authSlice.authInputs.password
+                            }))
+                        }}>LogIn</button>
                     </div>
                 </div>
                 <div className={authStyle.buttonsWrapper}>
